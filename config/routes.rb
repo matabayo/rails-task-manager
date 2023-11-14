@@ -6,8 +6,17 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "tasks", to:"tasks#index"
+
+  get "tasks/new", to: "tasks#new"
+
+  post "tasks", to: "tasks#create"
+  get "tasks/:id/edit", to: "tasks#edit", as: :edit
   # Defines the root path route ("/")
   get "tasks/:id", to: "tasks#show", as: :task
   # root "posts#index"
+
+  patch "tasks/:id", to: "tasks#update"
+
+  delete "tasks/:id", to: "tasks#destroy"
 
 end
